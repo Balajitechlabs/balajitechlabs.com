@@ -1,8 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: Security Vulnerabilities
-    url: mailto:admin@balajitechlab.com
-    about: Please report security vulnerabilities privately via email.
-  - name: Telegram Contact
-    url: https://t.me/balajitechlabs
-    about: Connect with Balaji directly on Telegram.
