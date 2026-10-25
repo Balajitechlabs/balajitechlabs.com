@@ -8,11 +8,11 @@
   },
   "routes": [
     {
-      "pattern": "balajitechlabs.com/*",
+      "pattern": "balajitechlabs.com",
       "custom_domain": true
     },
     {
-      "pattern": "www.balajitechlabs.com/*",
+      "pattern": "www.balajitechlabs.com",
       "custom_domain": true
     }
   ]
