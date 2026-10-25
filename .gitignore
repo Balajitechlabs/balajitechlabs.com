@@ -1,0 +1,54 @@
+# ==========================================
+# balajitechlabs.com - Security & Git Exclusion
+# ==========================================
+
+# Dependencies
+node_modules/
+.bun/
+.pnp
+.pnp.js
+
+# Production & Build Outputs
+.next/
+out/
+build/
+dist/
+.open-next/
+.vinext/
+
+# Cloudflare & Edge Deployment
+.wrangler/
+.mf/
+
+# 1Password & Environment Variables (Zero-Leak)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+
+# Debug & Execution Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun.lockb.bak
+
+# OS Metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor Local State
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+

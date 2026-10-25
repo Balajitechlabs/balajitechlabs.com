@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+    --card: #090909;
+    --card-border: #1f1f23;
+    --card-hover: #27272a;
+    --muted: #888888;
+    --accent: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: var(--card-border);
+  }
+
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
