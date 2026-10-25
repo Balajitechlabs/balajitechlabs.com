@@ -3,7 +3,9 @@
   "name": "balajitechlabs-com",
   "compatibility_date": "2026-10-25",
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": ".next",
+  "assets": {
+    "directory": "out"
+  },
   "routes": [
     {
       "pattern": "balajitechlabs.com/*",
