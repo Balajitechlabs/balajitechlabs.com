@@ -2,13 +2,13 @@
 
 @layer base {
   :root {
-    --background: #000000;
-    --foreground: #ededed;
-    --card: #090909;
-    --card-border: #1f1f23;
-    --card-hover: #27272a;
-    --muted: #888888;
-    --accent: #ffffff;
+    --background: #E5E4E0;
+    --foreground: #141414;
+    --card: #dad9d4;
+    --card-border: #bcbbb5;
+    --card-hover: #d0cfca;
+    --muted: #666666;
+    --accent: #111111;
   }
 
   * {
@@ -33,7 +33,7 @@
   }
 
   ::selection {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #141414;
+    color: #e5e4e0;
   }
 }

@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "format": "biome format --write .",
-    "lint": "biome check ."
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .next out .wrangler",
+    "preview": "wrangler dev",
+    "optimize:images": "bun run scripts/optimize-images.ts"
   },
   "dependencies": {
     "next": "^15.5.28",

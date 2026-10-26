@@ -4,7 +4,13 @@
   "compatibility_date": "2026-10-25",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "out"
+    "directory": "out",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
   },
   "routes": [
     {
