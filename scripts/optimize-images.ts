@@ -4,9 +4,8 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const currentDir =
-  typeof import.meta.dir === "string"
-    ? import.meta.dir
-    : path.dirname(fileURLToPath(import.meta.url));
+  (import.meta as { dir?: string }).dir ??
+  path.dirname(fileURLToPath(import.meta.url));
 
 const imgDir = path.resolve(currentDir, "../public/images");
 const files = ["avatar-illustrated.png", "avatar-real.png"];

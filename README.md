@@ -10,7 +10,7 @@ This repository is currently undergoing a complete architectural rebuild and des
 
 - **Current Live Portfolio**: Visit [balajitechlabs.com](https://balajitechlabs.com) for the live operational site.
 - **Previous Codebase**: Preserved on the [`btl-dev`](https://github.com/Balajitechlabs/balajitechlabs.com/tree/btl-dev) branch.
-- **Work in Progress**: The new  design system and tech stack are actively being developed on this branch.
+- **Work in Progress**: The new design system and tech stack are actively being developed on this branch.
 
 ---
 

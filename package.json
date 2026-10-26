@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf .next out .wrangler",
     "preview": "wrangler dev",
+    "deploy": "wrangler deploy",
     "optimize:images": "bun run scripts/optimize-images.ts"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "postcss": "^8.5.31",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "wrangler": "^4.152.0"

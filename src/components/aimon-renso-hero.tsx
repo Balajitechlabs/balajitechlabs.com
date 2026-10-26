@@ -207,12 +207,19 @@ export function AimonRensoHero() {
     [updateCoordinates]
   );
 
-  const handlePointerUp = useCallback(() => {
-    physics.current.targetIntensity = 0;
-    physics.current.targetTiltX = 0;
-    physics.current.targetTiltY = 0;
-    wakeLoop();
-  }, [wakeLoop]);
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (e.pointerType === "touch" || e.pointerType === "pen") {
+        physics.current.targetIntensity = 0;
+        physics.current.targetTiltX = 0;
+        physics.current.targetTiltY = 0;
+        wakeLoop();
+      } else {
+        updateCoordinates(e.clientX, e.clientY);
+      }
+    },
+    [updateCoordinates, wakeLoop]
+  );
 
   const handlePointerCancel = useCallback(() => {
     physics.current.targetIntensity = 0;
@@ -254,7 +261,7 @@ export function AimonRensoHero() {
           </span>
         </div>
         <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#141414]/50">
-          SYSTEMS &amp; INTERACTION LAB
+          SYSTEMS & INTERACTION LAB
         </span>
       </div>
 
@@ -363,6 +370,7 @@ export function AimonRensoHero() {
       {/* ============================================================ */}
       <div
         ref={avatarRef}
+        data-stage=""
         className="relative w-[92vw] sm:w-[75vw] md:w-[60vw] lg:w-[46vw] max-w-2xl h-[72vh] sm:h-[80vh] flex items-end justify-center will-change-transform z-20 cursor-default"
         style={{
           transformStyle: "preserve-3d",
@@ -395,7 +403,7 @@ export function AimonRensoHero() {
               className="w-full h-full object-contain object-bottom select-none"
               loading="eager"
               fetchPriority="high"
-              decoding="sync"
+              decoding="async"
             />
           </picture>
         </div>
@@ -405,7 +413,7 @@ export function AimonRensoHero() {
         {/* Driven directly by CSS variables --light-x, --light-y, etc. */}
         {/* ------------------------------------------------------------ */}
         <div
-          className="absolute inset-0 flex items-end justify-center overflow-hidden pointer-events-none will-change-[mask-image,opacity]"
+          className="absolute inset-0 flex items-end justify-center overflow-hidden pointer-events-none will-change-[opacity]"
           style={{
             maskImage:
               "radial-gradient(ellipse var(--light-rx, 0px) var(--light-ry, 0px) at var(--light-x, -1000px) var(--light-y, -1000px), black 15%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.3) 75%, transparent 100%)",
@@ -423,7 +431,7 @@ export function AimonRensoHero() {
               className="w-full h-full object-contain object-bottom select-none"
               loading="eager"
               fetchPriority="high"
-              decoding="sync"
+              decoding="async"
             />
           </picture>
         </div>
@@ -432,7 +440,7 @@ export function AimonRensoHero() {
         {/* 3. PHYSICAL SPECULAR LIGHT SHEEN                             */}
         {/* ------------------------------------------------------------ */}
         <div
-          className="absolute inset-0 pointer-events-none mix-blend-soft-light transition-opacity duration-150"
+          className="absolute inset-0 pointer-events-none mix-blend-soft-light"
           style={{
             background:
               "radial-gradient(ellipse calc(var(--light-rx, 0px) * 1.3) calc(var(--light-ry, 0px) * 1.3) at var(--light-x, -1000px) var(--light-y, -1000px), rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 45%, transparent 75%)",
@@ -442,10 +450,15 @@ export function AimonRensoHero() {
       </div>
 
       {/* ============================================================ */}
-      {/* 4. EDITORIAL SCROLL DOWN INDICATOR (BOTTOM CENTER)           */}
-      {/* ============================================================ */}
-      <div className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 select-none pointer-events-auto cursor-pointer group">
-        <div className="w-5 h-8.5 rounded-full border border-black/25 flex items-start justify-center p-1.5 backdrop-blur-xs transition-colors group-hover:border-black/50">
+      <div
+        onClick={() => {
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          }
+        }}
+        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2.5 select-none pointer-events-auto cursor-pointer group"
+      >
+        <div className="w-5 h-9 rounded-full border border-black/25 flex items-start justify-center p-1.5 backdrop-blur-sm transition-colors group-hover:border-black/50">
           <div className="w-1 h-2 rounded-full bg-[#111111] animate-bounce" />
         </div>
 
