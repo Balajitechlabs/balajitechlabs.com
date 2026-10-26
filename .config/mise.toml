@@ -5,8 +5,8 @@ bun = "latest"
 NEXT_TELEMETRY_DISABLED = "1"
 
 [tasks]
-dev = "opr bun run dev"
+dev = "bun run dev"
 build = "bun run build"
 format = "bunx biome format --write ."
 lint = "bunx biome check ."
-deploy = "opr wrangler deploy"
+deploy = "bun x wrangler deploy"
