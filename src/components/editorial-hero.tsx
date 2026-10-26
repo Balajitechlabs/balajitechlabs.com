@@ -349,4 +349,3 @@ export function EditorialHero() {
     </div>
   );
 }
-

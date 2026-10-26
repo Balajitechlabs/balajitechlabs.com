@@ -4,8 +4,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const currentDir =
-  (import.meta as { dir?: string }).dir ??
-  path.dirname(fileURLToPath(import.meta.url));
+  (import.meta as { dir?: string }).dir ?? path.dirname(fileURLToPath(import.meta.url));
 
 const imgDir = path.resolve(currentDir, "../public/images");
 const files = ["avatar-illustrated.png", "avatar-real.png"];
@@ -39,23 +38,23 @@ async function runOptimization() {
     console.log(`Processing: ${file} (${formatBytes(originalSize)})`);
 
     // Generate modern AVIF (Effort 6, Quality 80 for optimal compression & fidelity)
-    await sharp(inputPath)
-      .avif({ quality: 80, effort: 6 })
-      .toFile(avifPath);
+    await sharp(inputPath).avif({ quality: 80, effort: 6 }).toFile(avifPath);
 
     const avifSize = fs.statSync(avifPath).size;
     totalOptimizedAvif += avifSize;
     const avifSavings = (((originalSize - avifSize) / originalSize) * 100).toFixed(1);
-    console.log(`  ✓ AVIF: ${formatBytes(avifSize)} (${avifSavings}% reduction) -> ${baseName}.avif`);
+    console.log(
+      `  ✓ AVIF: ${formatBytes(avifSize)} (${avifSavings}% reduction) -> ${baseName}.avif`
+    );
 
     // Generate fallback WebP (Effort 6, Quality 85)
-    await sharp(inputPath)
-      .webp({ quality: 85, effort: 6 })
-      .toFile(webpPath);
+    await sharp(inputPath).webp({ quality: 85, effort: 6 }).toFile(webpPath);
 
     const webpSize = fs.statSync(webpPath).size;
     const webpSavings = (((originalSize - webpSize) / originalSize) * 100).toFixed(1);
-    console.log(`  ✓ WebP: ${formatBytes(webpSize)} (${webpSavings}% reduction) -> ${baseName}.webp`);
+    console.log(
+      `  ✓ WebP: ${formatBytes(webpSize)} (${webpSavings}% reduction) -> ${baseName}.webp`
+    );
     console.log();
   }
 
@@ -70,4 +69,3 @@ runOptimization().catch((err) => {
   console.error("Image optimization failed:", err);
   process.exit(1);
 });
-

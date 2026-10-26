@@ -36,24 +36,21 @@ export function LandoReveal() {
   }, [mousePos]);
 
   // Handle pointer movement inside container
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
-      const y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+    const y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
 
-      setMousePos({ x, y });
+    setMousePos({ x, y });
 
-      // 3D Perspective Tilt (-10 to +10 degrees)
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const tiltX = ((y - centerY) / centerY) * -8;
-      const tiltY = ((x - centerX) / centerX) * 8;
-      setTilt({ x: tiltX, y: tiltY });
-    },
-    [],
-  );
+    // 3D Perspective Tilt (-10 to +10 degrees)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = ((y - centerY) / centerY) * -8;
+    const tiltY = ((x - centerX) / centerX) * 8;
+    setTilt({ x: tiltX, y: tiltY });
+  }, []);
 
   const handlePointerEnter = () => {
     setIsHovered(true);
@@ -271,4 +268,3 @@ export function LandoReveal() {
     </div>
   );
 }
-

@@ -34,26 +34,23 @@ export function Hero() {
 
           {/* Bio Description */}
           <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-xl font-normal">
-            Engineering high-throughput edge systems, Cloudflare architectures, and minimalist digital software. Driven by sub-second latencies, clean engineering, and bloat-free design.
+            Engineering high-throughput edge systems, Cloudflare architectures, and minimalist
+            digital software. Driven by sub-second latencies, clean engineering, and bloat-free
+            design.
           </p>
 
           {/* Core Stack Badges */}
           <div className="flex flex-wrap gap-2 pt-2">
-            {[
-              "Cloudflare Workers",
-              "Next.js 15",
-              "React 19",
-              "Bun",
-              "TypeScript",
-              "1Password",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-1 text-xs font-mono rounded-md bg-zinc-900/80 border border-zinc-800/80 text-zinc-300"
-              >
-                {tech}
-              </span>
-            ))}
+            {["Cloudflare Workers", "Next.js 15", "React 19", "Bun", "TypeScript", "1Password"].map(
+              (tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 text-xs font-mono rounded-md bg-zinc-900/80 border border-zinc-800/80 text-zinc-300"
+                >
+                  {tech}
+                </span>
+              )
+            )}
           </div>
 
           {/* Call to Actions */}
@@ -92,4 +89,3 @@ export function Hero() {
     </section>
   );
 }
-
