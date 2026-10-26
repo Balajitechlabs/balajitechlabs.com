@@ -1,3 +1,21 @@
 {
-    "python.terminal.useEnvFile": true
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.next": true,
+    "**/.wrangler": true
+  },
+  "files.watcherExclude": {
+    "**/.env": true,
+    "**/.next/**": true,
+    "**/out/**": true,
+    "**/node_modules/**": true
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "python.terminal.useEnvFile": false
 }
